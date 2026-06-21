@@ -25,9 +25,13 @@ class HomeScreen extends ConsumerWidget {
     ref.watch(calendarViewModelProvider);
 
     // 오늘 수업
-    final todayCourses = ref.read(timetableViewModelProvider.notifier).todayCourses;
+    final todayCourses = ref
+        .read(timetableViewModelProvider.notifier)
+        .todayCourses;
     // 마감 임박 과제 (3일 이내)
-    final upcomingTasks = ref.read(taskViewModelProvider.notifier).getUpcoming(withinDays: 3);
+    final upcomingTasks = ref
+        .read(taskViewModelProvider.notifier)
+        .getUpcoming(withinDays: 3);
     // 이번 주 일정
     final weekSchedules = ref.read(calendarViewModelProvider.notifier).thisWeek;
 
@@ -65,10 +69,7 @@ class HomeScreen extends ConsumerWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-                child: SectionHeader(
-                  icon: Icons.table_chart,
-                  title: '오늘 수업',
-                ),
+                child: SectionHeader(icon: Icons.table_chart, title: '오늘 수업'),
               ),
             ),
             if (todayCourses.isEmpty)
@@ -96,10 +97,7 @@ class HomeScreen extends ConsumerWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-                child: SectionHeader(
-                  icon: Icons.assignment,
-                  title: '마감 임박 과제',
-                ),
+                child: SectionHeader(icon: Icons.assignment, title: '마감 임박 과제'),
               ),
             ),
             if (upcomingTasks.isEmpty)
@@ -256,7 +254,11 @@ class _TaskCard extends StatelessWidget {
     final theme = Theme.of(context);
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
-    final deadline = DateTime(task.deadline.year, task.deadline.month, task.deadline.day);
+    final deadline = DateTime(
+      task.deadline.year,
+      task.deadline.month,
+      task.deadline.day,
+    );
     final diff = deadline.difference(today).inDays;
 
     // D-Day 배지 색상
