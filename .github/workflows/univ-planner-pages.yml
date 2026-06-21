@@ -6,6 +6,8 @@ on:
     paths:
       - "presentation.html"
       - "Record_2026_06_22_00_15_33_63.mp4"
+      - "docs/index.html"
+      - "docs/Record_2026_06_22_00_15_33_63.mp4"
       - ".github/workflows/univ-planner-pages.yml"
   workflow_dispatch:
 
