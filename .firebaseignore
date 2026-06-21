@@ -1,0 +1,13 @@
+# Firebase cache
+.firebase/
+
+# VCS and IDE
+.git/
+.gitignore
+.idea/
+
+# Flutter and Dart
+**/.dart_tool/**
+
+# Node
+**/node_modules/**
